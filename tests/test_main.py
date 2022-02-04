@@ -1,56 +1,58 @@
-import random
-import string
-
 from app.main import check_password
 
 import pytest
 
 
-def password_generator():
-    letters_lower = string.ascii_lowercase
-    letters_upper = string.ascii_uppercase
-    numbers = string.digits
-    special_symbols = "$@#&!-_"
-    length = random.randint(8, 16)
-
-    all_symbols = [letters_upper, letters_lower, numbers, special_symbols]
-    random_password = ''
-
-    random_password += random.choice(letters_upper)
-    random_password += random.choice(letters_lower)
-    random_password += random.choice(numbers)
-    random_password += random.choice(special_symbols)
-
-    while len(random_password) < length:
-        random_password += random.choice(all_symbols[random.randint(0, 3)])
-
-    return random_password
+@pytest.mark.parametrize(
+    "password, expected",
+    [
+        ("1l0v3m@t3_", False),
+        ("$@#&!-_1dddwfj", False),
+    ],
+)
+def test_without_upper_letters(password, expected):
+    assert check_password(password) is expected
 
 
 @pytest.mark.parametrize(
     "password, expected",
     [
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
-        (password_generator(), True),
+        ("HKnDs@$@t..uUhLs_", False),
+        ("$@#&!-_ddwfj", False),
     ],
 )
-def test_random_password_generator(password, expected):
+def test_without_digits(password, expected):
+    assert check_password(password) is expected
+
+
+@pytest.mark.parametrize(
+    "password, expected",
+    [
+        ("1Df5Fes6ErfgG548", False),
+        ("1qW6G8Kkl4BB7sJ", False),
+    ],
+)
+def test_without_special_character(password, expected):
+    assert check_password(password) is expected
+
+
+@pytest.mark.parametrize(
+    "password, expected",
+    [
+        ("$@#&!1D", False),
+        ("Q!@#$1346fdsfdshDVUJhDVYUkldn", False),
+    ],
+)
+def test_when_length_less_8_or_more_16(password, expected):
+    assert check_password(password) is expected
+
+
+@pytest.mark.parametrize(
+    "password, expected",
+    [
+        ("1!Q#E$RhTd75", True),
+        ("Q!@#$1346Fsfd", True),
+    ],
+)
+def test_when_all_right(password, expected):
     assert check_password(password) is expected
