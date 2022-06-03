@@ -52,7 +52,6 @@ def test_for_allowed_symbols(password, symbol, expected):
             False,
             id="Func should check for special symbol including"
         ),
-
     ]
 )
 def test_for_including_all_necessary_symbols(password, expected):
