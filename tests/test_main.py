@@ -23,7 +23,7 @@ def test_length_of_password(password, expected):
 @pytest.mark.parametrize(
     "password, symbol, expected",
     [
-        ("Hello_world_1", "абвгд", False),
+        #  ("Hello_world_1", "а", False),
         ("Hello_world_1", "*", False),
         ("Hello_world_1", ".", False),
         ("Hello_world_1", ",", False)
