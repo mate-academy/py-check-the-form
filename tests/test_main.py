@@ -21,7 +21,7 @@ class TestPassword:
         has_special = False
         for letter in password:
             if letter.isalpha():
-                if letter.upper() == letter:
+                if letter.upper() == letter:  # this string has to be changed
                     has_upper = True
             elif letter.isdigit():
                 has_digit = True
@@ -31,23 +31,26 @@ class TestPassword:
                 return False
         return True if all([has_upper, has_digit, has_special]) else False
 
+    def _password_return(self) -> str:
+        password = ""
+
+        for i in range(randint(0, 30)):
+            if randint(1, 100) > 10:
+                symbol_line = randint(0, 3)
+                password += self._password_symbols[symbol_line][
+                    randint(0,
+                            len(self._password_symbols[symbol_line]) - 1)]
+            else:
+                symbol_line = randint(0, 2)
+                password += self._disallowed_symbols[symbol_line][
+                    randint(0,
+                            len(self._disallowed_symbols[
+                                    symbol_line]) - 1)]
+        return password
+
     def test_check_length(self):
         for _ in range(1000):
-            password = ""
-
-            for i in range(randint(0, 30)):
-                if randint(1, 100) > 10:
-                    symbol_line = randint(0, 3)
-                    password += self._password_symbols[symbol_line][
-                        randint(0,
-                                len(self._password_symbols[symbol_line]) - 1)]
-                else:
-                    symbol_line = randint(0, 2)
-                    password += self._disallowed_symbols[symbol_line][
-                        randint(0,
-                                len(self._disallowed_symbols[
-                                    symbol_line]) - 1)]
-
+            password = self._password_return()
             assert check_password(password) == \
                    self._check_password(
                        password), f"Password: {password} is incorrect"
