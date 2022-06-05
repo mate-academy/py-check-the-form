@@ -8,9 +8,9 @@ class TestPassword:
                          "abcdefghijklmnopqrstuvwxyz",
                          "0123456789",
                          "$@#&!-_"]
-    _disallowed_symbols = ["ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄ\ҐЯЧСМИТЬБЮ",
-                           "йцукенгшщзхїфівапролджєʼґячсмитьбю",
-                           ".,?()[]{}+="]
+    _disallowed_symbols = ["ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄҐЯЧСМИТЬБЮ",
+                           "йцукенгшщзхїфівапролджєґячсмитьбю",
+                           "`'.,?()[]{}+=\\"]
 
     @staticmethod
     def _check_password(password: str) -> bool:
@@ -45,7 +45,9 @@ class TestPassword:
                     symbol_line = randint(0, 2)
                     password += self._disallowed_symbols[symbol_line][
                         randint(0,
-                                len(self._disallowed_symbols[symbol_line]) - 1)]
+                                len(self._disallowed_symbols[
+                                    symbol_line]) - 1)]
 
-            assert check_password(password) == self._check_password(password), \
-                f"Password: {password} is incorrect"
+            assert check_password(password) == \
+                   self._check_password(
+                       password), f"Password: {password} is incorrect"
