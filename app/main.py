@@ -6,9 +6,7 @@ def check_password(password: str) -> bool:
     has_special = False
     for letter in password:
         if letter.isalpha():
-            print(1)
             if letter.upper() == letter:
-                print(2)
                 has_upper = True
         elif letter.isdigit():
             has_digit = True
