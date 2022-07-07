@@ -6,28 +6,28 @@ import pytest
     "checked_password, expected",
     [
         pytest.param(
+            "paS@1", False,
+            id="less than 8 characters"
+        ),
+        pytest.param(
+            "Averyvery@Long5432ij", False,
+            id="long password"
+        ),
+        pytest.param(
             "Pass@word1", True,
             id="password with letters, special symbols and numbers"
         ),
         pytest.param(
-            "qwerty", False,
-            id="less than 8 characters"
+            "Qwerty123", False,
+            id="without special symbol"
         ),
         pytest.param(
-            "Str@ng", False,
-            id="less than 8 characters"
+            "passwithou@1t", False,
+            id="without uppercase"
         ),
         pytest.param(
-            "passwordutg", True,
-            id="without uppercase and special symbols"
-        ),
-        pytest.param(
-            "Strongpass", True,
+            "Stro@ngpass", False,
             id="without digits"
-        ),
-        pytest.param(
-            "Strqwertyqwertylongqwert5432ij", False,
-            id="long password"
         ),
     ]
 )
