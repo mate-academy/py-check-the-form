@@ -1,4 +1,5 @@
 def check_password(password: str) -> bool:
+
     if len(password) not in range(8, 17):
         return False
     has_upper = False
