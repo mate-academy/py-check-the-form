@@ -14,7 +14,7 @@ def test_password_whitouht_upper_case():
 
 
 def test_password_whitouht_digit():
-    assert not check_password("pass@wordd")
+    assert not check_password("pass@wordd")  #
 
 
 def test_password_whitouht_special_characters():
