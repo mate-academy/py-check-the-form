@@ -13,6 +13,10 @@ def test_required_max_length_of_password():
     assert check_password("victory!123starmamory") is False
 
 
+def test_required_letter_in_password():
+    assert check_password("12345!!!") is False
+
+
 def test_uppercase_letter_in_password():
     assert check_password("Corsica1!") is True
 
