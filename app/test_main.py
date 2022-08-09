@@ -13,7 +13,7 @@ from app.main import check_password
                                           id="Password is sort"),
                              pytest.param("Passwords_", False,
                                           id="Password without digits"),
-                             pytest.param("passwordac10#@!", False,
+                             pytest.param("passswordac10#@!", False,
                                           id="Password without uppercase"),
                              pytest.param("Passwordwithmanycharacters10!",
                                           False,
