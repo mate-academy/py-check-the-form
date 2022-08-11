@@ -22,7 +22,7 @@ from app.main import check_password
             'strong111', False,
             id="test when no one special symbol"),
         pytest.param(
-            'Strong_strong', False,
+            'Strong_strongfff', False,
             id="test when no one digit")
     ]
 )
