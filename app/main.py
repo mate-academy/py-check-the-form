@@ -1,3 +1,9 @@
+import string
+
+print("Hello")
+print(string.ascii_letters)
+
+
 def check_password(password: str) -> bool:
     if len(password) not in range(8, 17):
         return False
