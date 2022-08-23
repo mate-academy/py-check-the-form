@@ -2,42 +2,98 @@ import pytest
 from app.main import check_password
 
 
-@pytest.mark.parametrize(
-    "psw, expected_result",
-    [
-        pytest.param(
-            "Aa12345+",
-            False,
-            id="value should equal mask. Should return False"
-        ),
-        pytest.param(
-            "Aa12345",
-            False,
-            id="value should be greater or equal than 8. Should return False"
-        ),
-        pytest.param(
-            "1" * 17,
-            False,
-            id="value should be less than 16. Should return False"
-        ),
-        pytest.param(
-            "$@#&!-_1Aa",
-            True,
-            id="Should return True"
-        ),
-        pytest.param(
-            "123456aA",
-            False,
-            id="Psw not contain special symbols. Should return False"
-        )
-    ]
-)
-def test_check_password(psw, expected_result):
-    assert check_password(psw) == expected_result
+@pytest.fixture()
+def password():
+    return ""
 
 
-def test_should_check_digit(psw):
-    for el in psw:
-        if el in "1234567890":
-            return True
-    return False
+def test_should_check_min_length(password: str) -> bool:
+    if len(password) > 16:
+        return False
+    has_upper = False
+    has_digit = False
+    has_special = False
+    for letter in password:
+        if letter.isalpha():
+            if letter.upper() == letter:
+                has_upper = True
+        elif letter.isdigit():
+            has_digit = True
+        elif letter in "$@#&!-_":
+            has_special = True
+        else:
+            return False
+    return all([has_upper, has_digit, has_special])
+
+
+def test_should_check_max_length(password: str) -> bool:
+    if len(password) < 8:
+        return False
+    has_upper = False
+    has_digit = False
+    has_special = False
+    for letter in password:
+        if letter.isalpha():
+            if letter.upper() == letter:
+                has_upper = True
+        elif letter.isdigit():
+            has_digit = True
+        elif letter in "$@#&!-_":
+            has_special = True
+        else:
+            return False
+    return all([has_upper, has_digit, has_special])
+
+
+def test_should_check_upper_letter(password: str) -> bool:
+    if len(password) not in range(8, 17):
+        return False
+    has_digit = False
+    has_special = False
+    for letter in password:
+        if letter.isdigit():
+            has_digit = True
+        elif letter in "$@#&!-_":
+            has_special = True
+        elif letter.isalpha():
+            continue
+        else:
+            return False
+    return all([has_digit, has_special])
+
+
+def test_should_check_digit(password: str) -> bool:
+    if len(password) not in range(8, 17):
+        return False
+    has_upper = False
+    has_special = False
+    for letter in password:
+        if letter.isalpha():
+            if letter.upper() == letter:
+                has_upper = True
+        elif letter.isdigit():
+            continue
+        elif letter in "$@#&!-_":
+            has_special = True
+        else:
+            return False
+    return all([has_upper, has_special])
+
+
+def test_should_check_special_symbols(password: str) -> bool:
+    if len(password) not in range(8, 17):
+        return False
+    has_upper = False
+    has_digit = False
+    has_special = False
+    for letter in password:
+        if letter.isalpha():
+            if letter.upper() == letter:
+                has_upper = True
+        elif letter.isdigit():
+            has_digit = True
+        elif letter in "$@#&!-_":
+            has_special = True
+        else:
+            return False
+    return all([has_upper, has_digit])
