@@ -10,7 +10,7 @@ class TestCheckPassword:
             ('Pass@word1', True),
             ('qwerty', False),
             ('Str@ng', False),
-            ('P@s', False),
+            ('P@1s', False),
             ('S0meverrrylongP@s', False),
             ('', False)
         ]
