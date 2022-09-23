@@ -1,7 +1,3 @@
-import pytest
-
-from unittest import mock
-
 from app.main import check_password
 
 
