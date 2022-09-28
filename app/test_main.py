@@ -34,4 +34,4 @@ def test_correct_function_work(password, expected):
 
 
 def test_for_short_pass():
-    assert check_password("tesT1$") == False
+    assert not check_password("tesT1$")
