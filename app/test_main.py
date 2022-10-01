@@ -7,11 +7,6 @@ import pytest
     "password, result",
     [
         pytest.param(
-            "Пароль123@",
-            False,
-            id="should use only Latin alphabet Aa-Zz!"
-        ),
-        pytest.param(
             "Fa1$",
             False,
             id="should has at least 8 characters"
@@ -25,11 +20,6 @@ import pytest
             "justpassword123@",
             False,
             id="should has at least one uppercase letter A-Z"
-        ),
-        pytest.param(
-            "PASSWORD123@",
-            False,
-            id="should has at least one lowercase letter a-z"
         ),
         pytest.param(
             "Password123",
