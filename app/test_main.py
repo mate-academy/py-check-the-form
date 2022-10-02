@@ -1,7 +1,6 @@
 import pytest
 
 from app.main import check_password
-from unittest import mock
 
 
 @pytest.mark.parametrize(
