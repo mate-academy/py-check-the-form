@@ -12,24 +12,32 @@ class TestCheckPassword:
                 id="Should return 'True' "
             ),
             pytest.param(
-                "qwerty", False,
-                id="Should return 'False'"
+                "Pass@word1Pass@word1Pass@word1", False,
+                id="Should return returns False for"
+                   " too long passwords"
             ),
             pytest.param(
                 "Str@ng", False,
                 id="Should return 'False'"
             ),
             pytest.param(
-                "12345", False,
-                id="Should return 'False'"
+                "Password1", False,
+                id="Should returns False for passwords"
+                   " without special symbols"
             ),
             pytest.param(
-                "H33l0 w0rld", False,
-                id="Should return 'False'"
+                "Password", False,
+                id="Should returns False for passwords"
+                   " without digits"
             ),
             pytest.param(
-                "Pass@word1Pass@word1Pass@word1", False,
-                id="Should return 'False'"
+                "abrakadabra", False,
+                id="Should  returns False for passwords"
+                   " without uppercase letter"
+            ),
+            pytest.param(
+                "Pass", False,
+                id="Should returns False for short passwords"
             )
         ]
     )
