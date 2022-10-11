@@ -6,11 +6,11 @@ class TestCheckPassword:
     @pytest.mark.parametrize(
         "test_password, expected_result",
         [
-            ("Very_long_password$@#", False),
-            ("Short_(", False),
+            ("Very_long_password12$@#", False),
+            ("Short1$", False),
             ("with0utChar", False),
             ("with0ut_upper!", False),
-            ("without_numbEr!@", False),
+            ("withOut_giG@", False),
             ("Pass@word1", True)
         ]
     )
