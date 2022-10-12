@@ -17,7 +17,7 @@ class TestCheckPassword:
             "W2@",
             False,
             id="Should return True if password is 'W2@'"),
-        pytest.param(
+         pytest.param(
             "Withoutdigt!@",
             False,
             id="Should return True if password is 'Withoutdigt!@'"),
@@ -29,7 +29,8 @@ class TestCheckPassword:
             "Ihavemorethan@!16",
             False,
             id="Should return True if password is 'Ihavemorethan@!16'"),
-        ])
+         ]
+    )
     def test_check_password(self,
                             input_value: str,
                             expected: bool
