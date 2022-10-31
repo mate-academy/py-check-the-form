@@ -24,3 +24,4 @@ from app.main import check_password
                          )
 def test_check_password(password, valid_or_invalid):
     assert check_password(password) == valid_or_invalid
+hg
