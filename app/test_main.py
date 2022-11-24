@@ -10,6 +10,8 @@ class TestCheckPassValidClass:
             ("qwerty", False),
             ("Str@ng", False),
             ("symbolisation", False),
+            ("symbol1sation", False),
+            ("symbolis@tion", False),
             ("ewqwjkenqwjenqnwekjqnwkejnqwekjqwnej", False),
             ("Pass@", False),
         ],
