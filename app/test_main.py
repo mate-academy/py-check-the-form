@@ -6,14 +6,16 @@ class TestCheckPassValidClass:
     @pytest.mark.parametrize(
         "password,result",
         [
-            ("Pass@word1", True),
-            ("qwerty", False),
-            ("Str@ng", False),
-            ("symbolisation", False),
-            ("symbol1sation", False),
-            ("symbolis@tion", False),
-            ("ewqwjkenqwjenqnwekjqnwkejnqwekjqwnej", False),
-            ("Pass@", False),
+            # too_short
+            ("Sho@r1", False),
+            # too long
+            ("ewqwj11enq_jenqnwekjqnwkejnqwekjqwnej", False),
+            # no_upper_case
+            ("pass@word1", False),
+            # no_didgits
+            ("qwer@YY____", False),
+            # no_special_symbols
+            ("Symbol1sation", False),
         ],
     )
     def test_check_password_is_valid(self, password: str,
