@@ -18,7 +18,7 @@ from app.main import check_password
         ),
         pytest.param(
             "C0d_codede123456",
-            False,
+            True,
             id="Valid password"
         ),
         pytest.param(
