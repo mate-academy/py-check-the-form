@@ -20,30 +20,33 @@ def test_password_has_forbidden_symbols(
     "test_input,expected",
     [
         ("s123@12", False),
+        ("Ds23@12", False),
+        ("2", False),
     ],
 )
 def test_password_shoud_be_min_8_len(test_input: str, expected: bool) -> None:
-    assert check_password(test_input) == len(test_input) >= 8
+    assert check_password(test_input) is expected
 
 
 @pytest.mark.parametrize(
     "test_input,expected",
     [
-        ("123454Pass@word1%", False),
+        ("123454Pass@word18", False),
+        ("123454Pass@word133222ff", False),
     ],
 )
 def test_password_max_16_len(test_input: str, expected: bool) -> None:
-    assert check_password(test_input) == len(test_input) <= 16
+    assert check_password(test_input) is expected
 
 
 @pytest.mark.parametrize(
     "test_input,expected",
     [
-        ("Pass@wordf%", False),
+        ("Pass@wordfjj", False),
     ],
 )
 def test_password_contain_digit(test_input: str, expected: bool) -> None:
-    assert check_password(test_input) == expected
+    assert check_password(test_input) is expected
 
 
 @pytest.mark.parametrize(
@@ -53,9 +56,7 @@ def test_password_contain_digit(test_input: str, expected: bool) -> None:
     ],
 )
 def test_password_contain_special(test_input: str, expected: bool) -> None:
-    assert check_password(test_input) == any(
-        ch in "$@#&!-_" for ch in test_input
-    )
+    assert check_password(test_input) is expected
 
 
 @pytest.mark.parametrize(
@@ -65,4 +66,4 @@ def test_password_contain_special(test_input: str, expected: bool) -> None:
     ],
 )
 def test_password_contain_upper(test_input: str, expected: bool) -> None:
-    assert check_password(test_input) == any(ch.isdigit() for ch in test_input)
+    assert check_password(test_input) is expected
