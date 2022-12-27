@@ -6,11 +6,11 @@ def test_is_too_long() -> None:
 
 
 def test_is_all_lowercase() -> None:
-    assert check_password('qw6!tdsvrerb') is False
+    assert check_password("qw6!tdsvrerb") is False
 
 
 def test_is_short() -> None:
-    assert check_password('S@ng6') is False
+    assert check_password("S@ng6") is False
 
 
 def test_is_uppercase() -> None:
