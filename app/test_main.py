@@ -1,6 +1,6 @@
 import pytest
 from app.main import check_password
-from typing import Any
+
 
 @pytest.mark.parametrize(
     "password,expected_result",
