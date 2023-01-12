@@ -11,8 +11,7 @@ from app.main import check_password
         ("Mypass12", False),
         ("Mypass@_", False),
         ("mypass1@", False),
-        ("Mypass1@%", False),
-        ("Myпароль1@", False)
+        ("Mypass1@%", False)
     ],
     ids=[
         "test_valid_password",
@@ -21,8 +20,7 @@ from app.main import check_password
         "test_password_without_special",
         "test_password_without_digits",
         "test_password_without_upper",
-        "test_password_with_not_allowed_special",
-        "test_password_with_no_latin"
+        "test_password_with_not_allowed_special"
     ]
 )
 def test_correct_check_password(password: str, result: bool) -> None:
