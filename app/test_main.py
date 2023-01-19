@@ -2,6 +2,7 @@ import pytest
 
 from app.main import check_password
 
+
 @pytest.mark.parametrize(
     "current_pass,exception_rate",
     [
@@ -19,5 +20,5 @@ from app.main import check_password
 def test_check_password(
         current_pass: str,
         exception_rate: bool
-):
+) -> None:
     assert check_password(current_pass) == exception_rate
