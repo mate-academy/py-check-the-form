@@ -12,5 +12,8 @@ from app.main import check_password
         ("aaaaaaa1&", False)
     ]
 )
-def test_check_password(expected_password, expected_result) -> None:
+def test_check_password(
+        expected_password: str,
+        expected_result: bool
+) -> None:
     assert check_password(expected_password) == expected_result
