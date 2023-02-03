@@ -1,6 +1,3 @@
-from unittest import mock
-import pytest
-
 from app.main import check_password
 
 
@@ -26,4 +23,3 @@ def test_password_must_have_at_least_1_uppercase_letter() -> None:
 
 def test_password_must_pass_all_verifications() -> None:
     assert check_password("1@Anywords")
-
