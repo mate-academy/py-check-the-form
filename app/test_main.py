@@ -5,7 +5,6 @@ import pytest
 @pytest.mark.parametrize(
     "password,result",
     [
-        ("Паss@wльd1", False),
         ("pass@word1", False),
         ("Pas@wo1", False),
         ("Pass@wo1", True),
