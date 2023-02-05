@@ -15,3 +15,8 @@ def check_password(password: str) -> bool:
         else:
             return False
     return all([has_upper, has_digit, has_special])
+
+
+print(check_password('Pass@word1'))  # is True
+print(check_password('qwerty'))  # is False
+print(check_password('Str@ng'))  # is False
