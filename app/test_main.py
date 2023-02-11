@@ -1,6 +1,4 @@
 import pytest
-from typing import Union
-from unittest import mock
 from app.main import check_password
 
 
@@ -18,6 +16,5 @@ from app.main import check_password
 
     ]
 )
-def test_check_password(password, result) -> None:
+def test_check_password(password: str, result: bool) -> None:
     assert check_password(password) is result
-
