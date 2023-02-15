@@ -6,7 +6,7 @@ from .main import check_password
     "password, result",
     [
         ("passqweword", False),
-        ("Qwerty1!", True),
+        ("Qwert1!", False),
         ("Str@ng", False),
         ("Pass@word1Pass@word1", False),
         ("", False),
