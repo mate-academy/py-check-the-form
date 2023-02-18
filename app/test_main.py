@@ -15,6 +15,6 @@ from .main import check_password
         ("q@1rtyfg", False),
     ]
 )
-def test_check_password(password, result):
+def test_check_password(password: str, result: bool) -> None:
     password_check = check_password(password)
     assert password_check == result
