@@ -1,24 +1,23 @@
-import pytest
 from app.main import check_password
 
 
-def test_valid_password():
+def test_valid_password() -> None:
     assert check_password("Abc123$#") is True
 
 
-def test_invalid_password_length():
+def test_invalid_password_length() -> None:
     assert check_password("aBc1$") is False
 
 
-def test_invalid_password_no_uppercase():
+def test_invalid_password_no_uppercase() -> None:
     assert check_password("abc123$#") is False
 
 
-def test_invalid_password_no_digit():
+def test_invalid_password_no_digit() -> None:
     assert check_password("Abcdefgh$#") is False
 
 
-def test_invalid_password_no_special_character():
+def test_invalid_password_no_special_character() -> None:
     assert check_password("Abc1234567") is False
 
 
