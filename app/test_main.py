@@ -1,25 +1,24 @@
+import pytest
+
 from app.main import check_password
 
 
-def test_length_lower() -> None:
-    assert check_password("J56&") is False
-
-
-def test_length_upper() -> None:
-    assert check_password("J56&hdajhasdhgjahsgdjh") is False
-
-
-def test_has_upper() -> None:
-    assert check_password("t40@rere") is False
-
-
-def test_has_digit() -> None:
-    assert check_password("Yt$UiUiU") is False
-
-
-def test_has_special() -> None:
-    assert check_password("567YtuYu") is False
-
-
-def test_has_all_requirements() -> None:
-    assert check_password("$HeyYou56") is True
+@pytest.mark.parametrize(
+    "password,result",
+    [
+        pytest.param("J56&", False,
+                     id="not enough chars"),
+        pytest.param("J56&hdajhasdhgjahsgdjh", False,
+                     id="too many chars"),
+        pytest.param("t40@rere", False,
+                     id="no upper letters"),
+        pytest.param("Yt$UiUiU", False,
+                     id="no digits"),
+        pytest.param("567YtuYu", False,
+                     id="no special symbols"),
+        pytest.param("$HeyYou56", True,
+                     id="correct input")
+    ]
+)
+def test_check_password(password: str, result: bool) -> None:
+    assert check_password(password) == result
