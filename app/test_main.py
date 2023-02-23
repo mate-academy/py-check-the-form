@@ -9,6 +9,7 @@ from app.main import check_password
         ("Pass@word", False),
         ("Password1", False),
         ("pass@word1", False),
+        ("Ps@wd1", False),
         ("Ps@wd109cc0909097", False),
         ("Pass@word1", True)
     ],
@@ -16,6 +17,7 @@ from app.main import check_password
         "Password without any digits should return False",
         "Password without any special character should return False",
         "Password without any uppercase letter should return False",
+        "Password shorter than 8 characters should return False",
         "Password longer than 16 characters should return False",
         "Pass@word1 should return True"
     ],
