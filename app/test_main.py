@@ -7,7 +7,7 @@ from app.main import check_password
     "password,result",
     [
         pytest.param("Aqwer12!*", False, id="unsupported special character"),
-        pytest.param("Qwerty9&", True, id="8 symbols"),
+        pytest.param("Qhjrty9&", True, id="8 symbols"),
         pytest.param("Asdfghjkl9876$_-", True, id="16 symbols"),
         pytest.param("As876$_", False, id="7 symbols"),
         pytest.param("Asdfghjkl90876$_-", False, id="17 symbols"),
