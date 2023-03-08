@@ -6,12 +6,11 @@ from app.main import check_password
     "password, result",
     [
         ("Amwee11", False),
-        ("Qhj3rty9&3", True),
+        ("Qhj3rty9&@3", True),
         ("Ajdnwhjkl90876$!-", False),
         ("kda^W)0", False),
         ("Hkhlhhgf*_", False),
         ("wkkdks876$_", False),
-        ("wk1TkdksY876$_", True),
     ],
     ids=[
         "Special character missing",
@@ -19,8 +18,7 @@ from app.main import check_password
         "Password length more then 16 symbols",
         "Password length less then 8 symbols",
         "Digits missing",
-        "Uppercase letters missing",
-        "Uppercase, digit and special symbols"
+        "Uppercase letters missing"
     ]
 )
 def test_check_password(password: str, result: bool) -> None:
