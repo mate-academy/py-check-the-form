@@ -5,16 +5,16 @@ from app.main import check_password
 @pytest.mark.parametrize(
     "password, result",
     [
-        ("Amwee11", False),
-        ("Qhj3rty9&@3", True),
-        ("Ajdnwhjkl90876$!-", False),
-        ("kda^W)0", False),
-        ("Hkhlhhgf*_", False),
+        ("Amweeyt11", False),
+        ("Qhj3rty_9&@3", True),
+        ("A56jdnwhjkl90876$!-", False),
+        ("kdQ_0", False),
+        ("HkhlKhgf*_", False),
         ("wkkdks876$_", False),
     ],
     ids=[
         "Special character missing",
-        "Password length 8-16 symbols",
+        "Valid password",
         "Password length more then 16 symbols",
         "Password length less then 8 symbols",
         "Digits missing",
