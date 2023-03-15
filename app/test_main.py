@@ -5,7 +5,7 @@ import pytest
 @pytest.mark.parametrize(
     "password,result",
     [
-        pytest.param(0, False,
+        pytest.param("1Qwert@", False,
                      id="password should contain at least 8 characters"),
         pytest.param("Pass@word1Pass@word1", False,
                      id="password should contain maximum 16 characters"),
