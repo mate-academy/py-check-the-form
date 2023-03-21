@@ -2,23 +2,27 @@ import pytest
 
 from app.main import check_password
 
+
 @pytest.mark.parametrize(
     "password, result",
     [
         pytest.param("Pass@word1", True,
                      id="Password is correct"),
         pytest.param("оарраівраллар", False,
-                     id="Password accepts only letters of the Latin alphabet Aa-Zz"),
+                     id="Password alphabet Aa-Zz"),
         pytest.param("Str@ng", False,
                      id="Password have at least 8 characters"),
         pytest.param("Pass@word1Pass@word1Pass@word1",
-                     False, id="Password have maximum 16 characters inclusive"),
+                     False, id="Password have maximum"
+                               " 16 characters inclusive"),
         pytest.param("Pass@1",
                      False, id="Password have 8"),
         pytest.param("Password", False,
-                     id="Password contains at least 1 digit, 1 special character, 1 uppercase letter"),
+                     id="Password contains at least 1 digit,"
+                        " 1 special character, 1 uppercase letter"),
         pytest.param("Password1", False,
-                     id="Password contains 1 special character, 1 uppercase letter"),
+                     id="Password contains 1 special "
+                        "character, 1 uppercase letter"),
         pytest.param("PasswGFJKd1", False,
                      id="Password contains 1 uppercase letter"),
         pytest.param("password1@", False,
@@ -27,49 +31,8 @@ from app.main import check_password
                      id="Password contains 1 uppercase letter")
     ]
 )
-
 def test_check_password(
         password: str,
         result: bool
 ) -> None:
     assert check_password(password) == result
-
-
-
-
-
-
-# import pytest
-#
-# from unittest import mock
-#
-# from app.main import can_access_google_page
-#
-#
-# @pytest.mark.parametrize(
-#     "has_internet_connection,valid_google_url,result",
-#     [
-#         (True, True, "Accessible"),
-#         (True, False, "Not accessible"),
-#         (False, True, "Not accessible"),
-#         (False, False, "Not accessible")
-#     ],
-#     ids=[
-#         "Valid to access the Google home page and it has internet connection",
-#         "Check URL",
-#         "Check internet connection",
-#         "Check URL and internet connection"
-#     ]
-# )
-# @mock.patch("app.main.has_internet_connection")
-# @mock.patch("app.main.valid_google_url")
-# def test_can_access_google_page(
-#         mock_has_internet_connection: mock,
-#         mock_main_valid_google_url: mock,
-#         valid_google_url: bool,
-#         has_internet_connection: bool,
-#         result: str
-# ) -> None:
-#     mock_has_internet_connection.return_value = has_internet_connection
-#     mock_main_valid_google_url.return_value = valid_google_url
-#     assert can_access_google_page("https://google.com") == result
