@@ -3,7 +3,7 @@ from app.main import check_password
 
 
 @pytest.mark.parametrize(
-    "password,result_of_checking",
+    "test_password,expected_result",
     [
         pytest.param(
             "aDjjdls45$",
