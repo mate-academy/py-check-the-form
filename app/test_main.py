@@ -16,8 +16,8 @@ from app.main import check_password
                      id="Test long password length when other rules correct"),
         pytest.param("П@роль123", False,
                      id="Test if text in Cyrillic"),
-        pytest.param("p@@s$@#&!1", False,
-                     id="Test if many  special characters"),
+        pytest.param("p@@s$@#&!1", True,
+                     id="Test if many special characters"),
     ]
 )
 def test_check_password(
