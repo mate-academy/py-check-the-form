@@ -20,7 +20,7 @@ from app.main import check_password
         "Maximum password length should be 16 characters",
         "Minimum password length should be 8 characters",
         "Function should return 'False' when password contain only numbers",
-        "Password also should contain at least 1 special character, 1 uppercase",
+        "Password also should contain 1 special character, 1 uppercase",
         "Password also should contain at least 1 special character",
         "Password also should contain at least 1 uppercase",
         "Password also should contain at least 1 digit"
