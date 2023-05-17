@@ -1,5 +1,7 @@
 import pytest
+
 from app.main import check_password
+
 
 @pytest.mark.parametrize(
     "password, result",
