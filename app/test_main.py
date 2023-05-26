@@ -3,7 +3,7 @@ import pytest
 from app.main import check_password
 
 
-@pytest.mark.paramitraze(
+@pytest.mark.parametrize(
     "password, result",
     [
         pytest.param("Passw@rd1", True, id="Test correct password"),
