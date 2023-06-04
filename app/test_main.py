@@ -7,7 +7,7 @@ from app.main import check_password
     "password,result",
     [
         ("SuperP@ss007", True),
-        ("SuperPuperVeryP@ss007", False),
+        ("SuperHyperVeryP@ss007", False),
         ("P@ss007", False),
         ("P@ss()()/", False),
         ("superp@ss007", False),
