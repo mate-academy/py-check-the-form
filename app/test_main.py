@@ -13,7 +13,7 @@ class TestCheckPassword:
                 id="Correct password"
             ),
             pytest.param(
-                "Pass",
+                "Pass@1",
                 False,
                 id="Password is too short"
             ),
@@ -31,6 +31,11 @@ class TestCheckPassword:
                 "Password1111",
                 False,
                 id="Password should contain at least 1 special symbol"
+            ),
+            pytest.param(
+                "pass@word1",
+                False,
+                id="Password should contain at least 1 uppercase letter "
             )
         ]
     )
