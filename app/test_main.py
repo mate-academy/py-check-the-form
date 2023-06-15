@@ -8,7 +8,7 @@ from app.main import check_password
     [
         ("Pass@word1", True),
         ("VeryStr0ngP@ss", True),
-        ("Str0ng$", True),
+        ("Str0ng$gg", True),
         ("a" * 20, False),
         ("Sa1$", False),
         ("qwerty", False),
