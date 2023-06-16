@@ -8,27 +8,27 @@ import pytest
 
     [
         pytest.param(
-            'Pass',
+            "Pass",
             False
         ),
         pytest.param(
-            'Pass@word1adadsadsadswdadwawaawdadw',
+            "Pass@word1adadsadsadswdadwawaawdadw",
             False
         ),
         pytest.param(
-            'Pass@word1',
+            "Pass@word1",
             True
         ),
         pytest.param(
-            'Pass@wordde',
+            "Pass@wordde",
             False
         ),
         pytest.param(
-            'Password123',
+            "Password123",
             False
         ),
         pytest.param(
-            'pass@word1',
+            "pass@word1",
             False
         ),
         pytest.param(
@@ -37,5 +37,5 @@ import pytest
         ),
     ]
 )
-def test_main(initial_password, expected_decision):
+def test_main(initial_password: str, expected_decision: bool) -> None:
     assert check_password(initial_password) == expected_decision
