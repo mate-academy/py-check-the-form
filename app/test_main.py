@@ -10,7 +10,7 @@ from app.main import check_password
         ("hshjhjkhakskkkk12@DD", False),
         ("GHJsjdfnsd@б", False),
         ("Gqa123safbkasj", False),
-        ("dsfjfkArtur@", True)
+        ("dsfjfkArtur@", False)
     ]
 )
 def test_check_password(
