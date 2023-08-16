@@ -7,8 +7,11 @@ from app.main import check_password
     "password, result",
     [
         ("Pass@word1", True),
-        ("qwerty", False),
-        ("Str@ng", False)
+        ("Q@1rty", False),
+        ("kejvberkjv1@Wkjvbwkjvbwkj", False),
+        ("kejvberkjv1@", False),
+        ("kejvberkjvA@", False),
+        ("kejvberkjv1AS", False)
     ]
 )
 def test_check_for_correct_password(password: str, result: bool) -> None:
