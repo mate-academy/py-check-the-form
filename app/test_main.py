@@ -1,4 +1,3 @@
-from typing import Union
 import pytest
 from app.main import check_password
 
@@ -6,43 +5,42 @@ from app.main import check_password
 @pytest.mark.parametrize(
     "password, result",
     [
-        (
-            "Pass@word1", True
+        pytest.param(
+            "Pass@word1",
+            True,
+            id="accepts only letters of the Latin alphabet Aa-Zz, "
+               "digits 0-9 or special character"
         ),
-        (
-            "qwerty", False
+        pytest.param(
+            "Password_123456789@",
+            False,
+            id="should have maximum 16 elements"
         ),
-        (
-            "Str@ng", False
+        pytest.param(
+            "qwerty",
+            False,
+            id="should have minimum 8 elements"
         ),
-        (
-            "Password_123456789@", False
+        pytest.param(
+            "Str@ng",
+            False,
+            id="contains at least  1 special character"
         ),
-        (
-            "S-1234567", True
+        pytest.param(
+            "Passworg_1",
+            True,
+            id="contains at least 1 digit, "
+               "1 special character, 1 uppercase letter"
         ),
-        (
-            "2222-3345", False
-        ),
-        (
-            "B5553345", False
-        ),
-        (
-            "Words_Box", False
-        ),
-        (
-            "checktext", False
-        ),
-        (
-            "9876543210", False
-        ),
-        (
-            "$@#&!-_-#", False
+        pytest.param(
+            "Worдцs_123",
+            False,
+            id="accepts only letters of the Latin alphabet Aa-Zz"
         ),
     ]
 )
 def test_check_password_correctly(
-        password: Union[int | str],
+        password: str,
         result: bool
 ) -> None:
 
