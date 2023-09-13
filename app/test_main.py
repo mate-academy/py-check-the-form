@@ -36,15 +36,20 @@ from app.main import check_password
     pytest.param(
         "08041982Plm$",
         True
+    ),
+    pytest.param(
+        "34564848Plm&",
+        True
+    ),
+    pytest.param(
+        "6698546As#d",
+        True
+    ),
+    pytest.param(
+        "Tuy374837$ghirt11",
+        False,
+        id="too-long password"
     )
-
-    # ("12345567", False),
-    # ("12Qazzzz", False),
-    # ("asdlOKWDA", False),
-    # ("12345jpeg", False),
-    # ("12eh", False),
-    # ("", False),
-    # ("08041982Plm$", True)
 ])
 def test_should_check_password(password: str, expected_result: bool) -> None:
     assert check_password(password) == expected_result
