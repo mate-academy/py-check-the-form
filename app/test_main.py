@@ -2,54 +2,45 @@ import pytest
 from app.main import check_password
 
 
-@pytest.mark.parametrize("password, expected_result", [
-    pytest.param(
-        "12345567",
-        False,
-        id="contains at least 1 capital letter"
-    ),
-    pytest.param(
-        "12Qazzzz",
-        False,
-        id="contains at least 1 special character"
-    ),
-    pytest.param(
-        "asdlOKWDA",
-        False,
-        id="contains at least 1 digit"
-    ),
-    pytest.param(
-        "12345jpeg",
-        False,
-        id="contains at 1 special character"
-    ),
-    pytest.param(
-        "12eh",
-        False,
-        id="contains at 1 special character"
-    ),
-    pytest.param(
-        "",
-        False,
-        id="password is empty string"
-    ),
-    pytest.param(
-        "08041982Plm$",
-        True
-    ),
-    pytest.param(
-        "34564848Plm&",
-        True
-    ),
-    pytest.param(
-        "6698546As#d",
-        True
-    ),
-    pytest.param(
-        "Tuy374837$ghirt11",
-        False,
-        id="too-long password"
-    )
-])
-def test_should_check_password(password: str, expected_result: bool) -> None:
-    assert check_password(password) == expected_result
+@pytest.mark.parametrize(
+    "password, result",
+    [
+        pytest.param(
+            "Pass@word1",
+            True,
+            id="accepts only letters of the Latin alphabet Aa-Zz, "
+               "digits 0-9 or special character"
+        ),
+        pytest.param(
+            "Password_123456789@",
+            False,
+            id="should have maximum 16 elements"
+        ),
+        pytest.param(
+            "qwerty",
+            False,
+            id="should have minimum 8 elements"
+        ),
+        pytest.param(
+            "Str@ng",
+            False,
+            id="contains at least  1 special character"
+        ),
+        pytest.param(
+            "Passworg_1",
+            True,
+            id="contains at least 1 digit, "
+               "1 special character, 1 uppercase letter"
+        ),
+        pytest.param(
+            "Worдцs_123",
+            False,
+            id="accepts only letters of the Latin alphabet Aa-Zz"
+        ),
+    ]
+)
+def test_check_password_correctly(
+        password: str,
+        result: bool
+) -> None:
+    assert check_password(password) == result
