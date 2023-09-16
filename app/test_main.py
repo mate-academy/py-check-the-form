@@ -16,7 +16,7 @@ import pytest
     ]
 )
 def test_check_password(
-        password: str, 
+        password: str,
         expected: bool
 ) -> None:
     if isinstance(expected, bool):
