@@ -11,7 +11,7 @@ from app.main import check_password
             id="correct password"
         ),
         pytest.param(
-            "qwerty",
+            "q",
             False,
             id="should be at least 8 characters"
         ),
@@ -34,6 +34,11 @@ from app.main import check_password
             "password@12",
             False,
             id="should contains at least 1 uppercase letter"
+        ),
+        pytest.param(
+            "ІГОР-123",
+            False,
+            id="accepts only letters of the Latin alphabet Aa-Zz"
         ),
     ]
 )
