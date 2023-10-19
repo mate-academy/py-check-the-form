@@ -6,7 +6,7 @@ def test_correct_password() -> None:
 
 
 def test_password_without_digits() -> None:
-    assert check_password("Mrjerks1&") is False
+    assert check_password("Mrjerks&") is False
 
 
 def test_password_with_short_password() -> None:
@@ -21,5 +21,5 @@ def test_password_without_special_characters() -> None:
     assert check_password("Arb56jmd") is False
 
 
-def test_password_without_upper_letter() -> None:
+def test_password_without_upper_case() -> None:
     assert check_password("qwe123-f-ff4") is False
