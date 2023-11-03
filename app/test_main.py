@@ -7,11 +7,11 @@ from app.main import check_password
     "password, expected",
     [
         ("Password1", False),
-        ("qwertywdzd", False),
+        ("qwert1wdz@", False),
         ("strongerr", False),
-        ("slow", False),
+        ("S1ow@", False),
         ("Ghj2@lkfjhdasdffffq", False),
-        ("qwertyqwer", False),
+        ("Qwert#wer", False),
     ],
 )
 def test_check_password(password: str, expected: bool) -> None:
