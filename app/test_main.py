@@ -6,14 +6,14 @@ from .main import check_password
 @pytest.mark.parametrize(
     "password, expected_result",
     [
-        ('Pass@word1', True),
-        ('qwerty', False),
-        ('Str@ng', False),
-        ('сCccc@ccc', False),
-        ('noupperc@s3', False),
-        ('VerYL0nGP@ssworD123456', False),
-        ('Nospecsymbo1', False),
-        ('P@55', False)
+        ("Pass@word1", True),
+        ("qwerty", False),
+        ("Str@ng", False),
+        ("сCccc@ccc", False),
+        ("noupperc@s3", False),
+        ("VerYL0nGP@ssworD123456", False),
+        ("Nospecsymbo1", False),
+        ("P@55", False)
 
     ], ids=[
         "Proper password",
