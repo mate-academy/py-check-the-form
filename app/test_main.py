@@ -7,7 +7,7 @@ from app.main import check_password
     "password, result",
     [
         pytest.param("", False, id="no_password"),
-        pytest.param("aCd#4", False, id="short_password"),
+        pytest.param("aCD#4", False, id="short_password"),
         pytest.param("Abcdefghjka#skdj1", False, id="too_long_password"),
         pytest.param("Abcdskdj1", False, id="no_symbol"),
         pytest.param("abda#skdj1", False, id="no_upper"),
