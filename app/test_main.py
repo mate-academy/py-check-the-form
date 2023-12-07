@@ -18,6 +18,6 @@ def test_check_password(
         password: str,
         result: bool) -> None:
 
-    assert(
+    assert (
         check_password(password) == result
     )
