@@ -2,6 +2,7 @@ import pytest
 
 from app.main import check_password
 
+
 @pytest.mark.parametrize(
     "user_password, expected_check",
     [
@@ -29,4 +30,3 @@ def test_check_password(
         user_password: str,
         expected_check: bool) -> None:
     assert check_password(user_password) == expected_check
-
