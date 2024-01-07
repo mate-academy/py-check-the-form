@@ -9,7 +9,7 @@ def valid_password() -> None:
 
 @pytest.fixture
 def invalid_short_password() -> None:
-    return "qwerty"
+    return "P@word1"
 
 
 @pytest.fixture
@@ -24,15 +24,12 @@ def passwords_without_uppercase_letter() -> None:
 
 @pytest.fixture
 def no_special_char() -> None:
-    return "NoSpecialChar123"
+    return "NoDi1Special"
 
 
 @pytest.fixture
 def no_digits() -> None:
-    return "NoDigit@SpecialChar"
-
-
-# Add more fixtures as needed for other test cases
+    return "No_cialChar"
 
 
 def test_valid_password(valid_password: any) -> None:
@@ -58,4 +55,4 @@ def test_no_special_char(no_special_char: any) -> None:
 
 
 def test_no_digits(no_digits: any) -> None:
-    assert check_password(no_digits)
+    assert not check_password(no_digits)
