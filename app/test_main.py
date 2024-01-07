@@ -36,11 +36,15 @@ def test_check_password_valid(valid_password: any) -> None:
     assert check_password(valid_password) is True
 
 
-def test_check_password_invalid_too_short(invalid_password_too_short: any) -> None:
+def test_check_password_invalid_too_short(
+        invalid_password_too_short: any
+) -> None:
     assert check_password(invalid_password_too_short) is False
 
 
-def test_check_password_invalid_too_long(invalid_password_too_long: any) -> None:
+def test_check_password_invalid_too_long(
+        invalid_password_too_long: any
+) -> None:
     assert check_password(invalid_password_too_long) is False
 
 
