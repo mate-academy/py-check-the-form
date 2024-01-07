@@ -1,5 +1,5 @@
-from app.main import check_password
 import pytest
+from app.main import check_password
 
 
 @pytest.fixture
@@ -8,59 +8,54 @@ def valid_password() -> None:
 
 
 @pytest.fixture
-def invalid_password_too_short() -> None:
-    return "AbcD123"
+def invalid_short_password() -> None:
+    return "qwerty"
 
 
 @pytest.fixture
-def invalid_password_too_long() -> None:
-    return "AbcD12345678901234"
+def invalid_long_password() -> None:
+    return "Str@ngLongPassword123"
 
 
 @pytest.fixture
-def invalid_password_no_digit() -> None:
-    return "Password@"
+def passwords_without_uppercase_letter() -> None:
+    return "pass@word1"
 
 
 @pytest.fixture
-def invalid_password_no_special_character() -> None:
-    return "Password123"
+def no_special_char() -> None:
+    return "NoSpecialChar123"
 
 
 @pytest.fixture
-def invalid_password_no_uppercase() -> None:
-    return "password@123"
+def no_digits() -> None:
+    return "NoDigit@SpecialChar"
 
 
-def test_check_password_valid(valid_password: any) -> None:
-    assert check_password(valid_password) is True
+# Add more fixtures as needed for other test cases
 
 
-def test_check_password_invalid_too_short(
-        invalid_password_too_short: any
+def test_valid_password(valid_password: any) -> None:
+    assert check_password(valid_password)
+
+
+def test_invalid_short_password(invalid_short_password: any) -> None:
+    assert not check_password(invalid_short_password)
+
+
+def test_invalid_long_password(invalid_long_password: any) -> None:
+    assert not check_password(invalid_long_password)
+
+
+def test_passwords_without_uppercase_letter(
+        passwords_without_uppercase_letter: any
 ) -> None:
-    assert check_password(invalid_password_too_short) is False
+    assert not check_password(passwords_without_uppercase_letter)
 
 
-def test_check_password_invalid_too_long(
-        invalid_password_too_long: any
-) -> None:
-    assert check_password(invalid_password_too_long) is False
+def test_no_special_char(no_special_char: any) -> None:
+    assert not check_password(no_special_char)
 
 
-def test_check_password_invalid_no_digit(
-        invalid_password_no_digit: any
-) -> None:
-    assert check_password(invalid_password_no_digit) is False
-
-
-def test_check_password_invalid_no_special_character(
-        invalid_password_no_special_character: any
-) -> None:
-    assert check_password(invalid_password_no_special_character) is False
-
-
-def test_check_password_invalid_no_uppercase(
-        invalid_password_no_uppercase: any
-) -> None:
-    assert check_password(invalid_password_no_uppercase) is False
+def test_no_digits(no_digits: any) -> None:
+    assert check_password(no_digits)
