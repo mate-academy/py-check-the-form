@@ -14,7 +14,7 @@ import pytest
         "check if len(password) < 8 is False",
         "check if len(password) > 16 is False",
         "check if non-latin password is False",
-        "check if contains at least 1 digit, 1 special character, 1 uppercase letter",
+        "check for at least 1 digit, 1 special character, 1 uppercase letter",
     ]
 )
 def test_correct_password_validation(
