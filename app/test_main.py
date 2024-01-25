@@ -8,8 +8,11 @@ from app.main import check_password
     "password, result",
     [
         ("Pass@word1", True),
-        ("qwerty", False),
-        ("Str@ng", False)
+        ("Pass@word", False),
+        ("Pass@word1wertyuq", False),
+        ("Password1w", False),
+        ("P@word1", False),
+        ("pass@word1", False),
     ]
 )
 def test_check_password(
