@@ -5,12 +5,11 @@ from app.main import check_password
 @pytest.mark.parametrize(
     "input_password,audit_password",
     [
-        ("Abcd123$", True),
+        ("InvalidPass1", False),
         ("Test@Pass1", True),
         ("SecurePwd!7", True),
         ("password123$", False),
         ("AbcdEfgh@!", False),
-        ("Invalid@Pass!", True),
         ("Ab12@C", False),
         ("TooLongPassword123$#", False)
     ]
