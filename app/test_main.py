@@ -6,6 +6,7 @@ from app.main import check_password
 @pytest.mark.parametrize(
     "password,result",
     [
+        ("Pass@word1", True),
         ("Sh@r7", False),
         ("More_than_16_are_here!", False),
         ("qwerty", False),
