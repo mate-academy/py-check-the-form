@@ -9,8 +9,8 @@ from app.main import check_password
         ("Pass@word1", True),
         ("Sh@r7", False),
         ("More_than_16_are_here!", False),
-        ("qwerty", False),
-        ("Str@ng", False),
+        ("qwertyui", False),
+        ("Str@ng!!", False),
         ("TestPassword", False),
     ],
 )
