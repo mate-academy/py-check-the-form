@@ -8,10 +8,10 @@ from app.main import check_password
     [
         ("Pass@word1", True),
         ("Sh@r7", False),
-        ("More_than_16_@re_here!", False),
-        ("qwertyu#", False),
+        ("More_than_16lett@rs", False),
+        ("qwerty1#", False),
         ("Str@ng!!", False),
-        ("TestPassword", False),
+        ("Tes1Password", False),
     ],
 )
 def test_check_password(password: str, result: bool) -> None:
