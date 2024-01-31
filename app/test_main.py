@@ -8,7 +8,7 @@ from app.main import check_password
     [
         pytest.param("Pass@word1", True,
                      id="Should return true"),
-        pytest.param("Abc!123", False,
+        pytest.param("Ffg!123", False,
                      id="test_should_check_min_length"),
         pytest.param("Fdf!13dfgdfg12312123321123", False,
                      id="test_should_check_max_length"),
