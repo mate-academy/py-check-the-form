@@ -1,4 +1,5 @@
 import pytest
+
 from app.main import check_password
 
 
@@ -9,6 +10,7 @@ from app.main import check_password
     ("qwerty4#", False),
     ("Str@ng&&", False),
     ("Tes5Parollll", False),
+    ("Long1rT$$n17le44ers", False),
 ])
 def test_check_password(password: str, expected_result: bool) -> None:
     assert check_password(password) == expected_result
