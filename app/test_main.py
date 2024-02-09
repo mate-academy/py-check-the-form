@@ -5,9 +5,9 @@ from app.main import check_password
 @pytest.mark.parametrize(
     "password, result",
     (
-        ("qretqrtqetq", False),
+        ("qr", False),
         ("qretqrtqetq@", False),
-        ("qretqrtqetq1234", False),
+        ("qretqrtqetqrqwerqwerqwerqwerqerq", False),
         ("qretqrtqetq123@", False),
         ("Qretqrtqetq123@", True),
     )
