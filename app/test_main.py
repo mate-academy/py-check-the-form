@@ -21,7 +21,7 @@ from app.main import check_password
         ("AValidPasswordWith$ymbols!", False),
         ("Sh0rt!", False),
         ("Toolongpasswordwithmorethan16characters", False),
-        ("%*<>{}^*+==%", False),
+        ("приветпароль", False),
         ("qwertyuiop", False),
 
     ]
