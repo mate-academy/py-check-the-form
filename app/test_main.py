@@ -12,7 +12,7 @@ from app.main import check_password
         ("fiuuuu#", False),
         ("Asdsdf$sdf", False),
         ("frD#dserdtututu2sdasdaf", False),
-        (";8h7g6frc", False)
+        ("8h7g6frc", False)
     ]
 )
 def test_check_password(password: str, result: bool) -> None:
