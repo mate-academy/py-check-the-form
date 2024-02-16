@@ -10,7 +10,7 @@ from app.main import check_password
         ("Qwerty", False),
         ("123456", False),
         ("fiuuuu#", False),
-        ("#wsxer6RDT43", False),
+        ("Asdsdf$sdf", False),
         ("frD#dserdtututu2sdasdaf", False),
         (";8h7g6frc", False)
     ]
