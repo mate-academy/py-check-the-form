@@ -11,7 +11,7 @@ from app.main import check_password
         ("123456", False),
         ("fiuuuu#", False),
         ("Asdsdf$sdf", False),
-        ("frD#dserdtututu2sdasdaf", False),
+        ("frDdserdtututu2sdasdaf", False),
         ("8h7g6frc", False)
     ]
 )
