@@ -7,11 +7,11 @@ from app.main import check_password
     "password, result",
     [
         ("Pass@word1", True),
-        ("Qwerty", False),
-        ("123456", False),
-        ("fiuuuu#", False),
-        ("Asdsdf$sdf", False),
-        ("frDdserdtututu2sdasdaf", False),
+        ("qwerty", False),
+        ("Str@ng", False),
+        (" ", False),
+        ("Asdsdfdf", False),
+        ("ъуъ", False),
         ("8h7g6frc", False)
     ]
 )
