@@ -16,5 +16,5 @@ from app.main import check_password
     ("TooLongPassword123!", False),
     ("ShortP@ss", False),
 ])
-def test_check_password(password, expected) -> None:
+def test_check_password(password: str, expected: bool) -> None:
     assert check_password(password) == expected
