@@ -5,6 +5,7 @@ from app.main import check_password
 @pytest.mark.parametrize("password, expected", [
     ("Pass@word1", True),
     ("qwerty", False),
+    ("Q2rt@", False),
     ("Str@ng", False),
     ("12345678", False),
     ("Password", False),
