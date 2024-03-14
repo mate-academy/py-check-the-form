@@ -28,6 +28,4 @@ def test_check_password(
         password: str,
         expected_result: bool
 ) -> None:
-    assert check_password(
-            password
-        ) == expected_result
+    assert check_password(password) == expected_result
