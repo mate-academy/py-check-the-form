@@ -31,7 +31,7 @@ from app.main import check_password
             id="short passwords"
         ),
         pytest.param(
-            "Ukraine1991!",
+            "!Ukraine24081991!",
             False,
             id="long passwords"
         )
