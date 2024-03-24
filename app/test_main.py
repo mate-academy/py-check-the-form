@@ -17,6 +17,5 @@ def test_check_password(
         mock_ascii_lowercase: mock.MagicMock,
         password: str,
         result: bool
-):
-    mock_ascii_lowercase = "abcdefghijklmnopqrstuvwxyz"
+) -> None:
     assert check_password(password) == result
