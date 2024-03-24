@@ -9,7 +9,7 @@ def check_password(password: str) -> bool:
     has_special = False
     for letter in password:
         if letter.isalpha():
-            if letter.upper() == letter:
+            if str.isupper(letter) == letter:
                 has_upper = True
             if letter.lower() not in ascii_lowercase:
                 return False
@@ -20,3 +20,6 @@ def check_password(password: str) -> bool:
         else:
             return False
     return all([has_upper, has_digit, has_special])
+
+
+print(check_password("PaSs@word1"))
