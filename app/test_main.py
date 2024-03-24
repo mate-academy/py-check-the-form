@@ -1,6 +1,6 @@
 import pytest
-from unittest.mock import patch, MagicMock
 from app.main import check_password
+
 
 class TestCheckPassword:
     @pytest.mark.parametrize(
