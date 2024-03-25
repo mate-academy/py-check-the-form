@@ -1,4 +1,7 @@
 import pytest
+
+from unittest.mock import patch, Mock
+
 from app.main import check_password
 
 
@@ -8,12 +11,17 @@ from app.main import check_password
         ("Pass@word1", True),
         ("qwerty1", False),
         ("Str@ng", False),
-        ("Strong@pass", False),
+        ("Strong@pass1", True),
         ("str0ng@pass", False),
-        ("TooLongPasswordWithMoreThan16s", False),
+        ("TooLongPasswordW@thMoreThan16s", False),
         ("Str#ng@pass", False),
-        ("", False)
+        ("S@2d", False)
     ]
 )
-def test_check_password(password: str, expected_result: bool) -> None:
-    assert check_password(password) == expected_result
+@patch("app.main.check_password")
+def test_check_password(
+        mock_password: Mock,
+        password: str,
+        expected_result: bool
+) -> None:
+    assert check_password(password) is expected_result
