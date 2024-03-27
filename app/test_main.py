@@ -7,8 +7,12 @@ from app.main import check_password
     "password,expected_value",
     [
         ("Pass@word1", True),
-        ("qwerty", False),
-        ("Str@ng", False)
+        ("1Q!qwe", False),
+        ("Str@ngdfgjh", False),
+        ("!W1qwertyuiasdfghjkl", False),
+        ("1qweQtixcv", False),
+        ("1!zxcvbnmjht", False),
+        ("Q!zxcvbnmjht", False)
     ]
 )
 def test_check_password(password: str, expected_value: bool) -> None:
