@@ -11,7 +11,7 @@ from app.main import check_password
         ("qwerty", False),
         ("Str@ng", False),
         ("DDDbbbhhh12345", False),
-        ("Sgfd123t_e2n", False),
+        ("Sgfdhji_en", False),
         ("gdf6-vb-f", False),
         ("adSfgdfh!", False),
         ("FF44e_d", False)
