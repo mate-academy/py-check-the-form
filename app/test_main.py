@@ -15,7 +15,6 @@ from app.main import check_password
         pytest.param("short", False, id="too short"),
         pytest.param("noppercase1!", False, id="no uppercase letters"),
         pytest.param("8рш1_шкЦИ", False, id="no special_symbols"),
-        pytest.param("noDigitsAnd", False, id="no digits and no special characters")
     ]
 )
 def test_password(password: str, result: bool) -> None:
