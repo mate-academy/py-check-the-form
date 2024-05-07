@@ -13,6 +13,6 @@ from app.main import check_password
         pytest.param("Pass@word", False, id="should be no digits"),
         pytest.param("Password1", False, id="should be no special symbols")
     ]
-)git
+)
 def test_check_password(password: str, result: bool) -> None:
     assert check_password(password) == result
