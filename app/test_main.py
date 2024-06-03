@@ -11,7 +11,7 @@ from app.main import check_password
         ("Str@ng", False),
         ("Pass@word1fsdffsf", False),
         ("passw1@ord", False),
-        ("PF1_fsSDGSF", False),
+        ("PF1lfsSDGSF", False),
         ("PF@_fsSDGSF", False),
 
     ],
