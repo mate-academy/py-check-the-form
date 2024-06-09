@@ -10,17 +10,21 @@ from app.main import check_password
             id="Strong password 'Pass@word1'"
         ),
         pytest.param(
-            "Password1", False,
-            id="Strong password 'Password1'"
+            "Password", False,
+            id="Password should contain at least 1 special character"
         ),
         pytest.param(
-            "qwerty", False,
-            id="Weak password 'qwerty'"
+            "q@3", False,
+            id="Password should contain at least 8 characters"
         ),
         pytest.param(
-            "Str@ng", False,
-            id="Weak password 'Str@ng'"
+            "Pass@w00000000000000000000000rd", False,
+            id="Password should not be large that 16 symbols"
         ),
+        pytest.param(
+            "Крутий@Пароль228", False,
+            id="Password should contain only Latin, special symbols and numbers"
+        )
     ]
 )
 def test_check_password(password: str, result: bool) -> None:
