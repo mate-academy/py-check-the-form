@@ -23,7 +23,7 @@ from app.main import check_password
         ),
         pytest.param(
             "Крутий@Пароль228", False,
-            id="Password should contain only Latin, special symbols and numbers"
+            id="Password should contain only Latin chars"
         )
     ]
 )
