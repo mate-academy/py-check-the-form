@@ -10,6 +10,10 @@ from app.main import check_password
             id="Strong password 'Pass@word1'"
         ),
         pytest.param(
+            "Password1", False,
+            id="Strong password 'Password1'"
+        ),
+        pytest.param(
             "qwerty", False,
             id="Weak password 'qwerty'"
         ),
