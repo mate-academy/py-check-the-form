@@ -24,4 +24,3 @@ import pytest
 )
 def test_passwords(password: str, result: bool) -> None:
     assert check_password(password) == result
-
