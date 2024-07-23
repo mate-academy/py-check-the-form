@@ -12,6 +12,9 @@ from app.main import check_password
         pytest.param("ABCDEFGH", False, id="only uppercase password"),
         pytest.param("12345678", False, id="only digits password"),
         pytest.param("_" * 8, False, id="only special chars password"),
+        pytest.param("abcdEFG$", False, id="no digits in password"),
+        pytest.param("abcdEFG1", False, id="no special symbols in password"),
+        pytest.param("abcd123$", False, id="no uppercase letter in password"),
         pytest.param(
             "a_B1cD3^f", False, id="password with incorrect special char"
         ),
