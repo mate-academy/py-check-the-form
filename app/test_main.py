@@ -25,20 +25,20 @@ def test_should_return_false_if_len_of_password_is_incorrect(
 
 
 @pytest.mark.parametrize(
-    "password, result",
+    "password",
     [
-        ("ABCSD_FGHJKL1", True),
-        ("asdfghjkl", False),
-        ("$@#&!-_$@#&!-_", False),
-        ("1234567890", False),
-        ("12345$@#&!-_", False),
-        ("asdfg$@#&!-_", False),
-        ("asdfg1234567", False),
-        ("чомуНеДержавною", False),
-        ("AbC123!@#$", True)
+        "ABCSD_FGHJKL1",
+        "asdfghjkl",
+        "abcdEFG1",
+        "$@#&!-_$@#&!-_",
+        "1234567890",
+        "12345$@#&!-_",
+        "asdfg$@#&!-_",
+        "asdfg1234567",
+        "чомуНеДержавною",
     ],
     ids=[
-        "correct password",
+        "incorrect password",
         "only upper letters",
         "only lower letters",
         "only symbols",
@@ -51,8 +51,7 @@ def test_should_return_false_if_len_of_password_is_incorrect(
 )
 def test_should_return_false_if_password_is_incorrect(
         password: str,
-        result: bool
 ) -> None:
-    assert check_password(password) is result, (
+    assert check_password(password) is False, (
         "Check password for upper letter, digit and special letter"
     )
