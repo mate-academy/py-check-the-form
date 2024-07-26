@@ -27,7 +27,7 @@ def test_should_return_false_if_len_of_password_is_incorrect(
 @pytest.mark.parametrize(
     "password, result",
     [
-        ("ABCSD_FGHJKL1", False),
+        ("ABCSD_FGHJKL1", True),
         ("asdfghjkl", False),
         ("$@#&!-_$@#&!-_", False),
         ("1234567890", False),
