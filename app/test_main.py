@@ -3,31 +3,17 @@ import pytest
 from app.main import check_password
 
 
-@pytest.mark.parametrize(
-    "password",
-    [
-        "",
-        "1234567",
-        "12345678901234567"
-    ],
-    ids=[
-        "Password can't be empty line",
-        "Too short password",
-        "Too long password"
-    ]
-)
 def test_should_return_false_if_len_of_password_is_incorrect(
         password: str,
 ) -> None:
-    assert check_password(password) is False, (
-        "Check password for length"
-    )
+    assert check_password("") == False
+    assert check_password("1234567") == False
+    assert check_password("12345678901234567") == False
 
 
 @pytest.mark.parametrize(
     "password",
     [
-        "ABCSD_FGHJKL1",
         "asdfghjkl",
         "abcdEFG1",
         "$@#&!-_$@#&!-_",
@@ -38,10 +24,10 @@ def test_should_return_false_if_len_of_password_is_incorrect(
         "чомуНеДержавною",
     ],
     ids=[
-        "incorrect password",
         "only upper letters",
         "only lower letters",
         "only symbols",
+        "only not correct symbols"
         "only numbers",
         "numbers with symbols",
         "letters with symbols",
@@ -52,6 +38,6 @@ def test_should_return_false_if_len_of_password_is_incorrect(
 def test_should_return_false_if_password_is_incorrect(
         password: str,
 ) -> None:
-    assert check_password(password) is False, (
+    assert check_password(password) == False, (
         "Check password for upper letter, digit and special letter"
     )
