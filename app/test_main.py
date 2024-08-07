@@ -2,6 +2,7 @@ import pytest
 
 from app.main import check_password
 
+
 @pytest.mark.parametrize(
     "password, bool_value",
     [
@@ -14,5 +15,6 @@ from app.main import check_password
         ("A!1hi", False)
     ]
 )
+
 def test_check_password(password, bool_value):
     assert check_password(password) == bool_value
