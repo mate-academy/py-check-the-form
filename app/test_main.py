@@ -11,3 +11,5 @@ def test_check_password() -> None:
     assert check_password("Password1") is False
     assert check_password("Pass@word") is False
     assert check_password("password") is False
+    assert check_password("pass@word1") is False
+    assert check_password("1234@abcd") is False
