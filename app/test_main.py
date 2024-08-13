@@ -1,36 +1,30 @@
 import pytest
+
 from app.main import check_password
 
 
 @pytest.mark.parametrize(
-    "checked_password,expected_result",
+    "checked_password,boolean",
     [
-        ("Valid123$", True),
-        ("Test@Password9", True),
-        ("Secure1@Password", True),
-        ("MyPass_2024", True),
-        ("Hello_World1", True)
+        ("Pass@word1", True),
+        ("Alpha5bet!", True),
+        ("Borjom7y&", True),
+        ("aPos5tRo-f", True)
     ]
 )
-def test_for_true_passwords(
-        checked_password: str,
-        expected_result: bool
-) -> None:
-    assert check_password(checked_password) == expected_result
+def test_for_true_passwords(checked_password: str, boolean: bool) -> None:
+    assert check_password(checked_password) == boolean
 
 
 @pytest.mark.parametrize(
-    "checked_password,expected_result",
+    "checked_password,boolean",
     [
-        ("short", False),
-        ("longpasswordwithnospecialcharacter1", False),
-        ("12345678", False),
-        ("validpassword$buttoolong123", False),
-        ("noUppercase1$", False)
+        ("Pasjhegrnkgheqenks@word1", False),
+        ("Alphabet!", False),
+        ("Qwertyu7", False),
+        ("Ad$4", False),
+        ("qwerty&7", False)
     ]
 )
-def test_for_false_passwords(
-        checked_password: str,
-        expected_result: bool
-) -> None:
-    assert check_password(checked_password) == expected_result
+def test_for_false_passwords(checked_password: str, boolean: bool) -> None:
+    assert check_password(checked_password) == boolean
