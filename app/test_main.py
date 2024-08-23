@@ -5,7 +5,7 @@ from app.main import check_password
 @pytest.mark.parametrize(
     "password, expected_result",
     [
-        ("hoplH@e", False),
+        ("ho3lH@e", False),
         ("derefgfdgdfgKdg@yy76876", False),
         ("123negJbr", False),
         ("ole@45671", False),
@@ -13,12 +13,16 @@ from app.main import check_password
         ("kolWr@were", False),
     ]
 )
-def test_for_check_password_false(password: str, expected_result: bool) -> None:
+def test_for_check_password_false(password: str,
+                                  expected_result: bool) \
+        -> None:
     assert check_password(password) == expected_result
+
 
 @pytest.mark.parametrize(
     "password, expected_result",
     [
+
         ("hopl1@Nur", True),
         ("deewfH@1421", True),
         ("123negbr@H", True),
