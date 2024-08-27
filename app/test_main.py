@@ -18,7 +18,7 @@ def test_invalid_passwords() -> None:
     assert check_password("12345678") is False
     assert check_password("!@#$%^&") is False
     assert check_password("A1b@") is False
-    assert check_password('A1@verylongpassword') is True
+    assert check_password("A1@verylongpassword") is True
 
 
 def test_edge_cases() -> None:
