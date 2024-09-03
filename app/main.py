@@ -20,5 +20,3 @@ def check_password(password: str) -> bool:
         else:
             return False
     return all([has_upper, has_digit, has_special])
-
-print(check_password("Str@ng2"))
