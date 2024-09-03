@@ -15,6 +15,8 @@ from app.main import check_password
         ("PassWithoutDigit", False),
         ("NoSpecialChar", False),
         ("@42PaGecG!2", True),
+        ("Valid1Pas sword@", False),  # Contains a space
+        ("Pass@word1$", True),  # Contains an additional special character
     ],
 )
 def test_check_password(password: str, expected: bool) -> bool:
