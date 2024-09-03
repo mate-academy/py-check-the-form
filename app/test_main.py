@@ -7,20 +7,14 @@ from app.main import check_password
 @pytest.mark.parametrize(
     "password, expected",
     [
-        ("Pass@rodk1", True),
-        ("password", False),
-        ("Str@ng", False),
-        ("Str@dng2", True),
-        ("qwerty", False),
-        ("onlylette!rs@oftheLati!n@alphabet", False),
-        ("onetrue42!@GDfd4", True),
-        ("PassWithoutDigit", False),
-        ("ACB1@avs", True),
-        ("NoSpecialChar", False),
-        ("@42PaGecG!2", True),
-        ("Valid1Pas sword@", False),
-        ("Pass@word1$", True),
-        ("hasnolow@1er", False),
+        pytest.param("Pa$$word1ы", False, id="invalid character"),
+        pytest.param("Pa$1", False, id="less than eight characters"),
+        pytest.param("Pa$$wordPa$$word1", False,
+                     id="more than eighteen characters"),
+        pytest.param("Pa$$wordP", False, id="missing digit"),
+        pytest.param("Password1", False, id="missing a special symbol"),
+        pytest.param("pa$$word1", False, id="missing a capital letter"),
+        pytest.param("Pa$$word1", True, id="valid password"),
     ],
 )
 def test_check_password(password: str, expected: bool) -> bool:
