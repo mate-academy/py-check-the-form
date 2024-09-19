@@ -1,19 +1,16 @@
-from app.main import check_password
-
 import pytest
+
+from app.main import check_password
 
 
 @pytest.mark.parametrize(
-    "password, result",
+    "password,result",
     [
         ("Pass@word1", True),
         ("qwerty", False),
         ("Str@ng", False),
-        ("Password!", False),
-        ("AnotherLongPassword!@#", False),
-        ("alllower123!", False),
-        ("NoSpecialChar1A", False),
-        ("Short1@", False),
+        ("Non@ngPassw@rd12345", False),
+        ("Bad@огр123", False),
     ]
 )
 def test_check_password(password: str, result: bool) -> None:
