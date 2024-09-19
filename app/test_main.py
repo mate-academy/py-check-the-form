@@ -1,4 +1,5 @@
 from app.main import check_password
+
 import pytest
 
 
@@ -7,5 +8,5 @@ import pytest
     ("qwerty", False),
     ("Str@ng", False),
 ])
-def test_check_password(password: str, examination: str) -> None:
+def test_check_password(password: str, examination: bool) -> None:
     assert check_password(password) == examination
