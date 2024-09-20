@@ -35,4 +35,4 @@ def test_max_length_password():
 
 
 def test_too_long_password():
-    assert check_password("Abcdefghijklmnop1@") is False
+    assert check_password("Abcdefghijk0lmnop1@") is False
