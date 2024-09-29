@@ -17,6 +17,7 @@ from app.main import check_password
         ("NodigitAndSpecial!", False),
         ("UPPERCASE$1", True),
         ("lowercaseonly@1", False),
+        ("S@meRealyVeryL0ngPasswordonly", False),
     ]
 )
 def test_check_password(password: str, expected: bool) -> None:
