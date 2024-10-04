@@ -12,5 +12,5 @@ from app.main import check_password
         ("J@h1", False),  # should be invalid, as it's too short
     ]
 )
-def test_check_password(password, expected):
+def test_check_password(password: str, expected: bool) -> None:
     assert check_password(password) is expected
