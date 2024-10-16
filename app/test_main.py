@@ -15,7 +15,9 @@ from app.main import check_password
         pytest.param("Stronger1man", False,
                      id="password without special symbols"),
         pytest.param("password@1", False,
-                     id="password without uppercase")
+                     id="password without uppercase"),
+        pytest.param("Param@word1ertfdgdt", False,
+                     id="to long password")
     ]
 )
 def test_correct_password(
