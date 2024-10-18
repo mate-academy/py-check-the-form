@@ -3,7 +3,7 @@ import pytest
 
 
 @pytest.mark.parametrize(
-  "password, confirm",
+    "password, confirm",
     [
         ("asdf", False),
         ("asdAAD@@f", False),
