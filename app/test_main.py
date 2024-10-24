@@ -12,7 +12,7 @@ class TestCheckIncorrectPasswords:
                 id=("test should return false if more then 9 digits")
             ),
             pytest.param(
-                "Qtysd",
+                "Qt@s1",
                 id=("test should return false for short passwords")
             ),
             pytest.param(
