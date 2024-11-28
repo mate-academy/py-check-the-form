@@ -2,6 +2,7 @@ import pytest
 
 from app.main import check_password
 
+
 @pytest.mark.parametrize(
     "password,expected_value",
     [
@@ -67,5 +68,6 @@ from app.main import check_password
         ),
     ],
 )
-def test_func_should_work_correctly(password, expected_value):
+def test_func_should_work_correctly(password: str,
+                                    expected_value: bool) -> None:
     assert check_password(password) == expected_value
