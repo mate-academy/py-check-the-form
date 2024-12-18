@@ -8,7 +8,8 @@ from app.main import check_password
         ("P!ass@wo1rd", True),
         ("Q!1rty", False),
         ("Qwer1#ty1111111111111", False),
-        ("Str@nbbbg", False)
+        ("Str@nbbbg", False),
+        ("p!ass@wo1rD", True)
     ]
 )
 def test_should_check_check_password(password: str, result: bool) -> None:
