@@ -14,7 +14,7 @@ def test_without_a_capital_letter() -> None:
 
 
 def test_without_a_number() -> None:
-    assert not check_password("Str@ng")
+    assert not check_password("Str@ngggggg")
 
 
 def test_without_a_special_character() -> None:
