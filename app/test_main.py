@@ -2,7 +2,11 @@ from app.main import check_password
 
 
 def test_for_true_password():
-    assert check_password("Password_1")
+    assert check_password("Pass@word1")
+
+
+def test_when_bed_password():
+    assert not check_password("qwerty")
 
 
 def test_without_a_capital_letter():
@@ -10,7 +14,7 @@ def test_without_a_capital_letter():
 
 
 def test_without_a_number():
-    assert not check_password("Password_")
+    assert not check_password("Str@ng")
 
 
 def test_without_a_special_character():
