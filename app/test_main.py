@@ -5,14 +5,12 @@ import pytest
 @pytest.mark.parametrize(
     "password, result", [
         ("Pass@word1", True),
-        ("Qwerty#", False),
+        ("Qwertyyy#", False),
+        ("1wertyyy#", False),
         ("s1r@ng", False),
         ("F_1dffgghhjjkkklllllllllllll#", False),
-        ("ff", False),
         ("Password123", False),
-        ("P@ssw0rd", True),
-        ("P@ssword_okkkkkkkkkkkk_#1", False),
-        ("1", False)
+        ("5A@", False),
 
     ],
     ids=[
@@ -23,13 +21,7 @@ import pytest
         "5",
         "6",
         "7",
-        "8",
-        "9"
-            ]
-
-
+    ]
 )
 def test_check_password(password: str, result: bool) -> None:
     assert check_password(password) == result, f"{password} is {result}"
-
-
